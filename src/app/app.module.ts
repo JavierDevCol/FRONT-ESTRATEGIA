@@ -3,21 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CoreModule } from './core/core.module';
-import { DashboardComponent } from './feature/dashboard/dashboard.component';
-import { FeatureComponent } from './feature/feature.component';
+import { AuthModule } from './feature/auth/auth.module';
 import { InicioComponent } from './inicio/inicio.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FeatureComponent,
     InicioComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CoreModule
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent],
