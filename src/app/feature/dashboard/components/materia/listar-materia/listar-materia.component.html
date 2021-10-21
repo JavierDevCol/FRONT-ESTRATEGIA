@@ -1,27 +1,28 @@
 <div class="row">
   <div class="col-12">
-      <div class="card">
-          <div class="card-body">
-              <h4 class="card-title">Bootstrap Simple Table</h4>
-              <h6 class="card-subtitle">Simple table example</h6>
-              <table data-toggle="table" data-height="250" data-mobile-responsive="true" class="table-striped">
-                  <thead>
-                      <tr>
-                          <th>Codigo</th>
-                          <th>Nombre</th>
-                          <th>Forks</th>
-                          <th>Description</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <tr *ngFor="let materia of listaMaterias | async" id="tr-id-1" class="tr-class-1">
-                          <td id="td-id-1" class="td-class-1">{{materia.id}} </td>
-                          <td>{{materia.nombre}}</td>
-                          <td>122</td>
-                          <td>An extended Bootstrap table with radio, checkbox, sort, pagination, and other added features. (supports twitter bootstrap v2 and v3) </td>
-                      </tr>
-                  </tbody>
-              </table>
-          </div>
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Bootstrap Simple Table</h4>
+        <h6 class="card-subtitle">Simple table example</h6>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Codigo</th>
+              <th scope="col">Nombre</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="let materia of listaMaterias | async"
+              id="tr-id-1"
+              class="tr-class-1"
+            >
+              <td id="td-id-1" class="td-class-1">{{ materia.id }}</td>
+              <td>{{ materia.nombre }}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-
+    </div>
+  </div>
+</div>

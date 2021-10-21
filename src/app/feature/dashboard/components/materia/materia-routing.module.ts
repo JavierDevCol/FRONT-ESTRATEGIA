@@ -5,9 +5,14 @@ import { ListarMateriaComponent } from './listar-materia/listar-materia.componen
 import { MateriaComponent } from './materia/materia.component';
 
 const routes: Routes = [
-  { path: 'crear', component: CrearMateriaComponent },
-  { path: 'listar', component: ListarMateriaComponent },
-  { path: '**', component: MateriaComponent },
+  {
+    path: '',
+    component: MateriaComponent,
+    children: [
+      { path: 'crear', component: CrearMateriaComponent },
+      { path: 'listar', component: ListarMateriaComponent },
+    ],
+  },
 ];
 
 @NgModule({

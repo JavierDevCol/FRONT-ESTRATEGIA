@@ -8,11 +8,23 @@ const routes: Routes = [
     path: '',
     component: DashboardComponent,
     children: [
-      { path: 'inicio', component: InicioComponent},
-      { path: 'materia', loadChildren: () => import('./components/materia/materia.module').then(mod => mod.MateriaModule) },
-      { path: 'grupo', loadChildren: () => import('./components/grupo/grupo.module').then(mod => mod.GrupoModule)}
-    ]
-  }
+      { path: 'inicio', component: InicioComponent },
+      {
+        path: 'materia',
+        loadChildren: () =>
+          import('./components/materia//materia.module').then(
+            (mod) => mod.MateriaModule
+          ),
+      },
+      {
+        path: 'grupo',
+        loadChildren: () =>
+          import('./components/grupo/grupo.module').then(
+            (mod) => mod.GrupoModule
+          ),
+      },
+    ],
+  },
 ];
 
 @NgModule({

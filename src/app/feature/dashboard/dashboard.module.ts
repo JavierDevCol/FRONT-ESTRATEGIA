@@ -5,6 +5,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { DashboardComponent } from './components/dashboard.component';
 import { CoreModule } from 'src/app/core/core.module';
 import { MateriaModule } from './components/materia/materia.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { MateriaModule } from './components/materia/materia.module';
     DashboardRoutingModule,
     MateriaModule,
     CoreModule
-  ]
+  ],
+  exports: [HttpClientModule]
 })
 export class DashboardModule { }

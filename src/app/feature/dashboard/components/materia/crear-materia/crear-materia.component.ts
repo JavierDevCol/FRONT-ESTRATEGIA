@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MateriaService } from '../shared/service/materia.service';
 
 @Component({
   selector: 'app-crear-materia',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrearMateriaComponent implements OnInit {
 
-  constructor() { }
+  constructor(protected service: MateriaService) { }
 
   ngOnInit(): void {
   }
