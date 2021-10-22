@@ -13,7 +13,7 @@
           </thead>
           <tbody>
             <tr
-              *ngFor="let materia of listaMaterias | async"
+              *ngFor="let materia of listaMaterias | async | filtro:desde:objMostrar"
               id="tr-id-1"
               class="tr-class-1"
             >
@@ -22,6 +22,15 @@
             </tr>
           </tbody>
         </table>
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" (click)="previousPage()" >Previous</a></li>
+            <li class="page-item"><button class="btn btn-primary" (click)="nextPage()" [disabled]="endPage==numberPages">Next</button></li>
+          </ul>
+        </nav>
+      </div>
+      <div *ngIf="endPage===numberPages" class="alert alert-warning" role="alert">
+        No se tienen mas datos!
       </div>
     </div>
   </div>

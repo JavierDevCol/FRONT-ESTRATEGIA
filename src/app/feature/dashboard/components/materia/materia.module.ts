@@ -6,19 +6,23 @@ import { CrearMateriaComponent } from './crear-materia/crear-materia.component';
 import { MateriaComponent } from './materia/materia.component';
 import { MateriaService } from './shared/service/materia.service';
 import { CommonModule } from '@angular/common';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     ListarMateriaComponent,
     CrearMateriaComponent,
-    MateriaComponent
+    MateriaComponent,
   ],
-  exports: [
-    ListarMateriaComponent,
-    CrearMateriaComponent,
-    MateriaComponent
+  exports: [ListarMateriaComponent, CrearMateriaComponent, MateriaComponent],
+  imports: [
+    CommonModule,
+    MateriaRoutingModule,
+    SharedModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
-  imports: [CommonModule, MateriaRoutingModule],
-  providers: [MateriaService]
+  providers: [MateriaService],
 })
 export class MateriaModule {}

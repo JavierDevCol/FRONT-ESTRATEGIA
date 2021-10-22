@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-body">
-    <form>
+    <form [formGroup]="materiaForm" (ngSubmit)="crearMateria()">
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label"
           >Nombre de la Materia</label
@@ -10,16 +10,17 @@
           class="form-control"
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
+          formControlName="nombre"
         />
         <div id="emailHelp" class="form-text"></div>
       </div>
-      <button type="submit" class="btn btn-primary">Crear Materia</button>
+      <button type="submit" class="btn btn-primary" [disabled] = "materiaForm.invalid">Crear Materia</button>
     </form>
   </div>
 </div>
 
 <div class="card">
   <div class="card-body">
-    <!-- <app-listar-materia></app-listar-materia> -->
+    <app-listar-materia></app-listar-materia>
   </div>
 </div>

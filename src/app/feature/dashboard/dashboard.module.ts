@@ -7,7 +7,6 @@ import { CoreModule } from 'src/app/core/core.module';
 import { MateriaModule } from './components/materia/materia.module';
 import { HttpClientModule } from '@angular/common/http';
 
-
 @NgModule({
   declarations: [
     InicioComponent,
@@ -16,7 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     DashboardRoutingModule,
     MateriaModule,
-    CoreModule
+    CoreModule,
   ],
   exports: [HttpClientModule]
 })
