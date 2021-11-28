@@ -21,4 +21,9 @@ export class MateriaService {
       this.http.optsName(' Crear y Actualiar Materia')
     );
   }
+
+  public eliminar(materia: Materia) {
+    return this.http.doDelete<boolean>(`${environment.endpoint}/aula/eliminar/${materia.id}`,
+    this.http.optsName('eliminar perfil'));
+  }
 }
