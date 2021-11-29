@@ -15,16 +15,16 @@ export class ClaseService {
     );
   }
 
-  public crear(Clase: Clase) {
+  public crear(clase: Clase) {
     return this.http.doPost<Clase, any>(
       `${environment.endpoint}/clase/crear`,
-      Clase,
+      clase,
       this.http.optsName(' Crear y Actualiar Clase')
     );
   }
 
-  public eliminar(Clase: Clase) {
-    return this.http.doDelete<boolean>(`${environment.endpoint}/clase/eliminar/${Clase.id}`,
+  public eliminar(clase: Clase) {
+    return this.http.doDelete<boolean>(`${environment.endpoint}/clase/eliminar/${clase.id}`,
     this.http.optsName('eliminar perfil'));
   }
 }

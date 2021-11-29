@@ -8,8 +8,11 @@
           <thead>
 
             <tr>
-              <th scope="col">Codigo</th>
-              <th scope="col">Nombre</th>
+              <th scope="col" class="text-center">Codigo</th>
+              <th scope="col" class="text-center">Nombre</th>
+              <th scope="col" class="text-center">Apellido</th>
+              <th scope="col" class="text-center">Correo</th>
+              <th scope="col" class="text-center">Repitente</th>
             </tr>
 
           </thead>
@@ -21,14 +24,24 @@
               id="tr-id-1"
               class="tr-class-1"
             >
-              <td id="td-id-1" class="td-class-1">{{ materia.id }}</td>
-              <td>{{ materia.nombre }}</td>
-              <td>
+              <td id="td-id-1" class="td-class-1 text-center">{{ materia.id }}</td>
+              <td class="text-center">{{ materia.nombre }}</td>
+              <td class="text-center">{{ materia.apellido }}</td>
+              <td class="text-center">{{ materia.correo }}</td>
+              <td class="text-center" *ngIf="materia.repitente === true" >
+                <i class="ti-check-box label label-light-danger" style="    width: 30px;
+                height: 30px;
+                padding-top: 8px;"></i>
+              </td>
+              <td class="text-center" *ngIf="materia.repitente === false" >
+              </td>
+
+              <td class="text-center">
                 <button class="btn btn-danger" (click)="borrar(materia)">
                   <i class="mdi mdi-delete-forever"></i>
                 </button>
                 </td>
-              <td>
+              <td class="text-center">
                 <button class="btn btn-primary">
                   <i class="fa fa-edit"></i>
                 </button>

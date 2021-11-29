@@ -16,7 +16,11 @@ export class CrearEstudianteComponent implements OnInit {
   ngOnInit(): void {
 
     this.estudianteForm = this.fb.group({
-      nombre: ['', Validators.required ]
+      nombre: ['', Validators.required ],
+      apellido: ['', Validators.required],
+      correo: ['', Validators.required],
+      repitente: [false],
+      contrasena: ['1234123']
     })
   }
 

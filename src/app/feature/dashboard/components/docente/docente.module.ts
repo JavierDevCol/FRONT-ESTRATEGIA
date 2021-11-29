@@ -6,6 +6,7 @@ import { DocenteRoutingModule } from './docente-routing.module';
 import { DocenteComponent } from './docente/docente.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DocenteService } from './shared/service/docente.service';
 
 
 
@@ -26,6 +27,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SharedModule,
     FormsModule,
     ReactiveFormsModule
+  ],
+  providers: [
+    DocenteService
   ]
 })
 export class DocenteModule { }

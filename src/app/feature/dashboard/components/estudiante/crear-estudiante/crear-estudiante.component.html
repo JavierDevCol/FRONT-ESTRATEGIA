@@ -10,7 +10,16 @@
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
           formControlName="nombre"
-          placeholder="Nombre del grupo"
+          placeholder="Nombres del Estudiante"
+        />
+
+        <input
+          type="email"
+          class="form-control"
+          id="descripcion"
+          aria-describedby="emailHelp"
+          formControlName="apellido"
+          placeholder="Apellidos"
         />
 
         <input
@@ -18,15 +27,28 @@
         class="form-control"
         id="descripcion"
         aria-describedby="emailHelp"
-        formControlName="descripcion"
-        placeholder="Descripcion"
+        formControlName="correo"
+        placeholder="Correo Electronico"
       />
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="repitente">
+        <label class="form-check-label" for="flexCheckDefault">
+          Repitente ?
+        </label>
+      </div>
+
         <div id="emailHelp" class="form-text"></div>
       </div>
-      <button type="submit" class="btn btn-primary" [disabled] = "estudianteForm.invalid">Crear Estrategia</button>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="estudianteForm.invalid"
+      >
+        Crear Estudiante
+      </button>
     </form>
   </div>
 </div>
 
 <app-listar-estudiante></app-listar-estudiante>
-

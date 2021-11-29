@@ -7,6 +7,7 @@ import { ListarGrupoComponent } from './listar-grupo/listar-grupo.component';
 import { CrearGrupoComponent } from './crear-grupo/crear-grupo.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { GrupoService } from './shared/service/grupo.service';
 
 
 @NgModule({
@@ -26,6 +27,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
     ReactiveFormsModule,
     FormsModule,
     SharedModule
+  ],
+  providers: [
+    GrupoService
   ]
 })
 export class GrupoModule { }
