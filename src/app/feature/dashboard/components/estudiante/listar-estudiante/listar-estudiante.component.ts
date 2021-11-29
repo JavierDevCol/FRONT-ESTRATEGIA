@@ -1,27 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import Swal from 'sweetalert2';
-import { Grupo } from '../shared/model/Grupo';
-import { GrupoService } from '../shared/service/grupo.service';
+import { Estudiante } from '../shared/model/Estudiante';
+import { EstudianteService } from '../shared/service/estudiante.service';
 
 @Component({
-  selector: 'app-listar-grupo',
-  templateUrl: './listar-grupo.component.html',
-  styleUrls: ['./listar-grupo.component.css']
+  selector: 'app-listar-estudiante',
+  templateUrl: './listar-estudiante.component.html',
+  styleUrls: ['./listar-estudiante.component.css']
 })
-export class ListarGrupoComponent implements OnInit {
+export class ListarEstudianteComponent implements OnInit {
 
-  public listaGrupos: Observable<Grupo[]>;
+  public listaEstudiantes: Observable<Estudiante[]>;
   public desde: number = 0;
   public numberPages: number = 0;
   public endPage: number = 1;
   public objMostrar: number = 4;
 
-  constructor(protected grupoService: GrupoService) { }
+  constructor(protected estudianteService: EstudianteService) { }
 
   ngOnInit() {
-    this.listaGrupos = this.grupoService.consultar();
-    this.listaGrupos.subscribe( resp => this.calcularPage(resp.length) );
+    this.listaEstudiantes = this.estudianteService.consultar();
+    this.listaEstudiantes.subscribe( resp => this.calcularPage(resp.length) );
 
   }
 
@@ -48,13 +48,13 @@ export class ListarGrupoComponent implements OnInit {
       this.numberPages = Math.round(totalObj / this.objMostrar);
   }
 
-  borrar(grupo: Grupo) {
+  borrar(estudiante: Estudiante) {
     Swal.fire({
-      title: 'Desea eliminar el perfil: ' + grupo.nombre,
+      title: 'Desea eliminar el estudiante: ' + estudiante.nombre + " " + estudiante.apellido,
       showCancelButton: true
     }).then((input) => {
       if (input.isConfirmed) {
-        this.grupoService.eliminar(grupo).subscribe(
+        this.estudianteService.eliminar(estudiante).subscribe(
           () => {
             Swal.mixin({
               toast: true,

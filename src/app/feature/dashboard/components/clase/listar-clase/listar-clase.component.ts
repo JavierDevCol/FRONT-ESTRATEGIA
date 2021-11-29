@@ -1,27 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import Swal from 'sweetalert2';
-import { Grupo } from '../shared/model/Grupo';
-import { GrupoService } from '../shared/service/grupo.service';
+import { Clase } from '../shared/model/Clase';
+import { ClaseService } from '../shared/service/Clase.service';
 
 @Component({
-  selector: 'app-listar-grupo',
-  templateUrl: './listar-grupo.component.html',
-  styleUrls: ['./listar-grupo.component.css']
+  selector: 'app-listar-clase',
+  templateUrl: './listar-clase.component.html',
+  styleUrls: ['./listar-clase.component.css']
 })
-export class ListarGrupoComponent implements OnInit {
-
-  public listaGrupos: Observable<Grupo[]>;
+export class ListarClaseComponent implements OnInit {
+  public listaClases: Observable<Clase[]>;
   public desde: number = 0;
   public numberPages: number = 0;
   public endPage: number = 1;
   public objMostrar: number = 4;
 
-  constructor(protected grupoService: GrupoService) { }
+  constructor(protected claseService: ClaseService) { }
 
   ngOnInit() {
-    this.listaGrupos = this.grupoService.consultar();
-    this.listaGrupos.subscribe( resp => this.calcularPage(resp.length) );
+    this.listaClases = this.claseService.consultar();
+    this.listaClases.subscribe( resp => this.calcularPage(resp.length) );
 
   }
 
@@ -48,13 +47,13 @@ export class ListarGrupoComponent implements OnInit {
       this.numberPages = Math.round(totalObj / this.objMostrar);
   }
 
-  borrar(grupo: Grupo) {
+  borrar(clase: Clase) {
     Swal.fire({
-      title: 'Desea eliminar el perfil: ' + grupo.nombre,
+      title: 'Desea eliminar la clase: ' + clase.grupo,
       showCancelButton: true
     }).then((input) => {
       if (input.isConfirmed) {
-        this.grupoService.eliminar(grupo).subscribe(
+        this.claseService.eliminar(clase).subscribe(
           () => {
             Swal.mixin({
               toast: true,

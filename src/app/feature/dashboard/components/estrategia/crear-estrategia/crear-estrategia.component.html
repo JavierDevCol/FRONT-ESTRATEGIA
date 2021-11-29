@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-body">
-    <form [formGroup]="grupoForm" (ngSubmit)="crearMateria()">
+    <form [formGroup]="estrategiaForm" (ngSubmit)="crearEstrategia()">
       <div class="mb-3">
         <!-- <label for="exampleInputEmail1" class="form-label"
           >Nombre de la Materia</label> -->
@@ -12,12 +12,21 @@
           formControlName="nombre"
           placeholder="Nombre del grupo"
         />
+
+        <input
+        type="email"
+        class="form-control"
+        id="descripcion"
+        aria-describedby="emailHelp"
+        formControlName="descripcion"
+        placeholder="Descripcion"
+      />
         <div id="emailHelp" class="form-text"></div>
       </div>
-      <button type="submit" class="btn btn-primary" [disabled] = "grupoForm.invalid">Crear Grupo</button>
+      <button type="submit" class="btn btn-primary" [disabled] = "estrategiaForm.invalid">Crear Estrategia</button>
     </form>
   </div>
 </div>
 
-<app-listar-grupo></app-listar-grupo>
+<app-listar-estrategia></app-listar-estrategia>
 

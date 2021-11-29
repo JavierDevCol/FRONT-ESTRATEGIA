@@ -1,27 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import Swal from 'sweetalert2';
-import { Grupo } from '../shared/model/Grupo';
-import { GrupoService } from '../shared/service/grupo.service';
+import { Estrategia } from '../shared/model/Estrategia';
+import { EstrategiaService } from '../shared/service/estrategia.service';
 
 @Component({
-  selector: 'app-listar-grupo',
-  templateUrl: './listar-grupo.component.html',
-  styleUrls: ['./listar-grupo.component.css']
+  selector: 'app-listar-estrategia',
+  templateUrl: './listar-estrategia.component.html',
+  styleUrls: ['./listar-estrategia.component.css']
 })
-export class ListarGrupoComponent implements OnInit {
-
-  public listaGrupos: Observable<Grupo[]>;
+export class ListarEstrategiaComponent implements OnInit {
+  public listaEstrategias: Observable<Estrategia[]>;
   public desde: number = 0;
   public numberPages: number = 0;
   public endPage: number = 1;
   public objMostrar: number = 4;
 
-  constructor(protected grupoService: GrupoService) { }
+  constructor(protected estrategiaService: EstrategiaService) { }
 
   ngOnInit() {
-    this.listaGrupos = this.grupoService.consultar();
-    this.listaGrupos.subscribe( resp => this.calcularPage(resp.length) );
+    this.listaEstrategias = this.estrategiaService.consultar();
+    this.listaEstrategias.subscribe( resp => this.calcularPage(resp.length) );
 
   }
 
@@ -48,13 +47,13 @@ export class ListarGrupoComponent implements OnInit {
       this.numberPages = Math.round(totalObj / this.objMostrar);
   }
 
-  borrar(grupo: Grupo) {
+  borrar(estrategia: Estrategia) {
     Swal.fire({
-      title: 'Desea eliminar el perfil: ' + grupo.nombre,
+      title: 'Desea eliminar la estrategia: ' + estrategia.nombre,
       showCancelButton: true
     }).then((input) => {
       if (input.isConfirmed) {
-        this.grupoService.eliminar(grupo).subscribe(
+        this.estrategiaService.eliminar(estrategia).subscribe(
           () => {
             Swal.mixin({
               toast: true,
@@ -93,5 +92,4 @@ export class ListarGrupoComponent implements OnInit {
     });
 
   }
-
 }

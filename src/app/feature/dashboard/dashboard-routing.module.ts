@@ -23,6 +23,34 @@ const routes: Routes = [
             (mod) => mod.GrupoModule
           ),
       },
+      {
+        path: 'estudiante',
+        loadChildren: () =>
+        import('./components/estudiante/estudiante.module').then(
+          (mod) => mod.EstudianteModule
+        )
+      },
+      {
+        path: 'clase',
+        loadChildren: () =>
+        import('./components/clase/clase.module').then(
+          (mod) => mod.ClaseModule
+        )
+      },
+      {
+        path: 'docente',
+        loadChildren: () =>
+        import('./components/docente/docente.module').then(
+          (mod) => mod.DocenteModule
+        )
+      },
+      {
+        path: 'estrategia',
+        loadChildren: () =>
+        import('./components/estrategia/estrategia.module').then(
+          (mod) => mod.EstrategiaModule
+        )
+      }
     ],
   },
 ];

@@ -17,14 +17,14 @@
           <tbody>
 
             <tr
-              *ngFor="let materia of listaGrupos | async | filtro:desde:objMostrar"
+              *ngFor="let docente of listaDocentes | async | filtro:desde:objMostrar"
               id="tr-id-1"
               class="tr-class-1"
             >
-              <td id="td-id-1" class="td-class-1">{{ materia.id }}</td>
-              <td>{{ materia.nombre }}</td>
+              <td id="td-id-1" class="td-class-1">{{ docente.id }}</td>
+              <td>{{ docente.nombre }}</td>
               <td>
-                <button class="btn btn-danger" (click)="borrar(materia)">
+                <button class="btn btn-danger" (click)="borrar(docente)">
                   <i class="mdi mdi-delete-forever"></i>
                 </button>
                 </td>
