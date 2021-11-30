@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './feature/auth/auth.module';
 import { InicioComponent } from './inicio/inicio.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { InicioComponent } from './inicio/inicio.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AuthModule
+    AuthModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

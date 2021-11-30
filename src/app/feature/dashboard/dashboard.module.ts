@@ -26,6 +26,7 @@ import { ClaseModule } from './components/clase/clase.module';
     DocenteModule,
     ClaseModule,
     CoreModule,
+
   ],
   exports: [HttpClientModule]
 })

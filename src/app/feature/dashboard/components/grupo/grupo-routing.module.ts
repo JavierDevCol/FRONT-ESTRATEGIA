@@ -5,13 +5,28 @@ import { GrupoComponent } from './grupo/grupo.component';
 import { ListarGrupoComponent } from './listar-grupo/listar-grupo.component';
 
 const routes: Routes = [
-  { path: 'crear', component: CrearGrupoComponent},
-  { path: 'listar', component: ListarGrupoComponent},
-  { path: '**', component: GrupoComponent}
+  {
+    path: '',
+    component: GrupoComponent,
+    children: [
+      {
+        path: 'crear',
+        component: CrearGrupoComponent,
+      },
+      {
+        path: 'listar',
+        component: ListarGrupoComponent,
+      },
+      {
+        path: '**',
+        component: GrupoComponent,
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class GrupoRoutingModule { }
+export class GrupoRoutingModule {}

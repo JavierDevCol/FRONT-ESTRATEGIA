@@ -1,17 +1,17 @@
 export class Clase {
-  clase: number;
-  materia: number;
-  grupo: number;
-  docente: number;
-  estudiante: number;
+  clase: string;
+  materia: string;
+  grupo: string;
+  docente: string;
+  estudiante: string;
   id: number;
 
   constructor(
-    clase: number,
-    materia: number,
-    grupo: number,
-    docente: number,
-    estudiante: number,
+    clase: string,
+    materia: string,
+    grupo: string,
+    docente: string,
+    estudiante: string,
     id: number
   ) {
     this.clase = clase;

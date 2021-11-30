@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import Swal from 'sweetalert2';
 import { Clase } from '../shared/model/Clase';
-import { ClaseService } from '../shared/service/Clase.service';
+import { ClaseHttpService } from '../shared/service/clase-http.service';
 
 @Component({
   selector: 'app-listar-clase',
@@ -16,7 +16,7 @@ export class ListarClaseComponent implements OnInit {
   public endPage: number = 1;
   public objMostrar: number = 4;
 
-  constructor(protected claseService: ClaseService) { }
+  constructor(protected claseService: ClaseHttpService) { }
 
   ngOnInit() {
     this.listaClases = this.claseService.consultar();

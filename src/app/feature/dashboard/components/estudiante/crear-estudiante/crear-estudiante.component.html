@@ -4,47 +4,25 @@
       <div class="mb-3">
         <!-- <label for="exampleInputEmail1" class="form-label"
           >Nombre de la Materia</label> -->
-        <input
-          type="email"
-          class="form-control"
-          id="exampleInputEmail1"
-          aria-describedby="emailHelp"
-          formControlName="nombre"
-          placeholder="Nombres del Estudiante"
-        />
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          formControlName="nombre" placeholder="Nombres del Estudiante" /><br>
 
-        <input
-          type="email"
-          class="form-control"
-          id="descripcion"
-          aria-describedby="emailHelp"
-          formControlName="apellido"
-          placeholder="Apellidos"
-        />
+        <input type="email" class="form-control" id="descripcion" aria-describedby="emailHelp"
+          formControlName="apellido" placeholder="Apellidos" /><br>
 
-        <input
-        type="email"
-        class="form-control"
-        id="descripcion"
-        aria-describedby="emailHelp"
-        formControlName="correo"
-        placeholder="Correo Electronico"
-      />
+        <input type="email" class="form-control" id="descripcion" aria-describedby="emailHelp" formControlName="correo"
+          placeholder="Correo Electronico" /><br>
 
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="repitente">
-        <label class="form-check-label" for="flexCheckDefault">
-          Repitente ?
-        </label>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="repitente">
+          <label class="form-check-label" for="flexCheckDefault">
+            Repitente ?
+          </label>
+        </div><br>
+
+        <div id="emailHelp" class="form-text"></div><br>
       </div>
-
-        <div id="emailHelp" class="form-text"></div>
-      </div>
-      <button
-        type="submit"
-        class="btn btn-primary"
-        [disabled]="estudianteForm.invalid"
-      >
+      <button type="submit" class="btn btn-primary" [disabled]="estudianteForm.invalid">
         Crear Estudiante
       </button>
     </form>

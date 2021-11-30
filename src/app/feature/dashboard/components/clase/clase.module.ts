@@ -6,9 +6,7 @@ import { ListarClaseComponent } from './listar-clase/listar-clase.component';
 import { ClaseComponent } from './clase/clase.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ClaseService } from './shared/service/clase.service';
-
-
+import { ClaseHttpService } from './shared/service/clase-http.service';
 
 
 @NgModule({
@@ -29,6 +27,6 @@ import { ClaseService } from './shared/service/clase.service';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ClaseService]
+  providers: [ClaseHttpService]
 })
 export class ClaseModule { }

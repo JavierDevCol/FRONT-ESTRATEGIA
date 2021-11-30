@@ -8,8 +8,10 @@
           <thead>
 
             <tr>
-              <th scope="col">Codigo</th>
-              <th scope="col">Nombre</th>
+              <th scope="col">Materia</th>
+              <th scope="col">Grupo</th>
+              <th scope="col">Docente</th>
+              <th scope="col">Periodo</th>
             </tr>
 
           </thead>
@@ -21,8 +23,10 @@
               id="tr-id-1"
               class="tr-class-1"
             >
-              <td id="td-id-1" class="td-class-1">{{ clase.id }}</td>
-              <td>{{ clase.nombre }}</td>
+              <td id="td-id-1" class="td-class-1">{{ clase.materia }}</td>
+              <td>{{ clase.grupo }}</td>
+              <td>{{ clase.docente }}</td>
+              <td>{{ clase.periodo }}</td>
               <td>
                 <button class="btn btn-danger" (click)="borrar(clase)">
                   <i class="mdi mdi-delete-forever"></i>
