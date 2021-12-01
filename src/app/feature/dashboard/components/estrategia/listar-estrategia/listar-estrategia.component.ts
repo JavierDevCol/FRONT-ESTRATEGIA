@@ -68,7 +68,7 @@ export class ListarEstrategiaComponent implements OnInit {
               }
             }).fire({
               icon: 'success',
-              title: 'Se elimino el Perfil'
+              title: 'Se elimino la Estrategia'
             });
             this.ngOnInit();
           },

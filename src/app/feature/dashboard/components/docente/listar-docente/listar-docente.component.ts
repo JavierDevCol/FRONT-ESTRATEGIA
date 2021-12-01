@@ -63,7 +63,7 @@ export class ListarDocenteComponent implements OnInit {
               },
             }).fire({
               icon: 'success',
-              title: 'Se elimino el Perfil',
+              title: 'Se elimino el Docente',
             });
             this.ngOnInit();
           },

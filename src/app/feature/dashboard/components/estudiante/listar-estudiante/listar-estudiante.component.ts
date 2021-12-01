@@ -69,7 +69,7 @@ export class ListarEstudianteComponent implements OnInit {
               }
             }).fire({
               icon: 'success',
-              title: 'Se elimino el Perfil'
+              title: 'Se elimino el Estudiante'
             });
             this.ngOnInit();
           },

@@ -27,16 +27,16 @@ export class CrearEstudianteComponent implements OnInit {
   }
 
 
-  public crearEstrategia() {
+  public crearEstudiante() {
     console.log(this. estudianteForm.value);
     this.service.crear(this. estudianteForm.value).subscribe(
       () => {
         Swal.fire({
-          title: 'Estrategia  "' + this. estudianteForm.value.nombre + '" Creado',
+          title: 'Estudiante  "' + this. estudianteForm.value.nombre + '" Creado',
           icon: 'success',
           confirmButtonText: 'Listo',
         });
-        this.navegacion.navigate(['dashboard', 'grupo','listar']);
+        this.navegacion.navigate(['dashboard', 'estudiante','listar']);
       },
       ({ error }) => {
         Swal.fire({

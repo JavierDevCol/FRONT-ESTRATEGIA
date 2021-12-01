@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { DocenteService } from '../shared/service/docente.service';
 
 @Component({
@@ -11,7 +13,7 @@ export class CrearDocenteComponent implements OnInit {
 
   public docenteForm: FormGroup;
 
-  constructor(protected service: DocenteService, private fb: FormBuilder) { }
+  constructor(protected service: DocenteService, private fb: FormBuilder, private navegacion: Router) { }
 
   ngOnInit(): void {
 
@@ -22,6 +24,23 @@ export class CrearDocenteComponent implements OnInit {
 
   public crearDocente() {
     console.log(this.docenteForm.value);
-    this.service.crear(this.docenteForm.value).subscribe();
+    this.service.crear(this.docenteForm.value).subscribe(
+      () => {
+        Swal.fire({
+          title: 'Docente  "' + this.docenteForm.value.nombre + '" Creado',
+          icon: 'success',
+          confirmButtonText: 'Listo',
+        });
+        this.navegacion.navigate(['dashboard', 'docente','listar']);
+      },
+      ({ error }) => {
+        Swal.fire({
+          title: error.mensaje,
+          text: this.docenteForm.value.nombre,
+          icon: 'warning',
+          confirmButtonText: 'Listo',
+        });
+      }
+    );
   }
 }

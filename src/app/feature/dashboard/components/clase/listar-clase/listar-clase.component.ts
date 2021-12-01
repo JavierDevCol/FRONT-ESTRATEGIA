@@ -76,7 +76,7 @@ export class ListarClaseComponent implements OnInit {
               }
             }).fire({
               icon: 'success',
-              title: 'Se elimino el Perfil'
+              title: 'Se elimino la Clase'
             });
             this.ngOnInit();
           },
