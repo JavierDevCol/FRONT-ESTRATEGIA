@@ -12,7 +12,7 @@ export class DocenteService {
 
   public consultar() {
     return this.http.doGet<Docente[]>(
-      `${environment.endpoint}/docente/listar`,
+      `${environment.endpoint}/docente/listar-todo`,
       this.http.optsName('Todas los Docentes')
     );
   }

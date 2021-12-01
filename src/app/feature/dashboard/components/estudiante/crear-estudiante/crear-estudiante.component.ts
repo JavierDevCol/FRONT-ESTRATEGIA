@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { EstudianteService } from '../shared/service/estudiante.service';
 
 @Component({
@@ -11,7 +13,7 @@ export class CrearEstudianteComponent implements OnInit {
 
   public estudianteForm: FormGroup;
 
-  constructor(protected service: EstudianteService, private fb: FormBuilder) { }
+  constructor(protected service: EstudianteService, private fb: FormBuilder, private navegacion: Router) { }
 
   ngOnInit(): void {
 
@@ -24,9 +26,26 @@ export class CrearEstudianteComponent implements OnInit {
     })
   }
 
-  public crearEstrategia() {
-    console.log(this.estudianteForm.value);
-    this.service.crear(this.estudianteForm.value).subscribe();
-  }
 
+  public crearEstrategia() {
+    console.log(this. estudianteForm.value);
+    this.service.crear(this. estudianteForm.value).subscribe(
+      () => {
+        Swal.fire({
+          title: 'Estrategia  "' + this. estudianteForm.value.nombre + '" Creado',
+          icon: 'success',
+          confirmButtonText: 'Listo',
+        });
+        this.navegacion.navigate(['dashboard', 'grupo','listar']);
+      },
+      ({ error }) => {
+        Swal.fire({
+          title: error.mensaje,
+          text: this.  estudianteForm.value.nombre,
+          icon: 'warning',
+          confirmButtonText: 'Listo',
+        });
+      }
+    );
+  }
 }

@@ -12,7 +12,7 @@ export class EstrategiaService {
 
   public consultar() {
     return this.http.doGet<Estrategia[]>(
-      `${environment.endpoint}/Estrategia/listar`,
+      `${environment.endpoint}/estrategia/listar`,
       this.http.optsName('Todas los Estrategias')
     );
   }
@@ -26,7 +26,7 @@ export class EstrategiaService {
   }
 
   public eliminar(Estrategia: Estrategia) {
-    return this.http.doDelete<boolean>(`${environment.endpoint}/Estrategia/eliminar/${Estrategia.id}`,
+    return this.http.doDelete<boolean>(`${environment.endpoint}/estrategia/eliminar/${Estrategia.id}`,
     this.http.optsName('eliminar perfil'));
   }
 }

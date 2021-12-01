@@ -24,6 +24,39 @@ export class ClaseHttpService {
     );
   }
 
+  public asignarDocenteMateriaClase(materia: Clase) {
+    return this.http.doPost<Clase, any>(
+      `${environment.endpoint}/clase/asignar-docente-materia-clase`,
+      materia,
+      this.http.optsName(' Actualizar Docente')
+    );
+  }
+
+  public asignarEstratetgiaClase(materia: Clase) {
+    return this.http.doPost<Clase, any>(
+      `${environment.endpoint}/clase/asignar-estrategia-clase`,
+      materia,
+      this.http.optsName(' Actualizar Estrategia')
+    );
+  }
+
+  public asignarEstudianteClase(materia: Clase) {
+    return this.http.doPost<Clase, any>(
+      `${environment.endpoint}/clase/asignar-estudiante-clase`,
+      materia,
+      this.http.optsName(' Actualizar Estudiante')
+    );
+  }
+
+  public asignarMateriaClase(materia: Clase) {
+    return this.http.doPost<Clase, any>(
+      `${environment.endpoint}/clase/asignar-materia-clase`,
+      materia,
+      this.http.optsName(' Actualizar Materia')
+    );
+  }
+
+
   public eliminar(clase: Clase) {
     return this.http.doDelete<boolean>(`${environment.endpoint}/clase/eliminar/${clase.id}`,
     this.http.optsName('eliminar clase'));
