@@ -15,7 +15,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CrearMateriaComponent,
     MateriaComponent,
   ],
-  exports: [ListarMateriaComponent, CrearMateriaComponent, MateriaComponent],
+  exports: [
+    ListarMateriaComponent,
+    CrearMateriaComponent,
+    MateriaComponent],
   imports: [
     CommonModule,
     MateriaRoutingModule,

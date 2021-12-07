@@ -1,9 +1,11 @@
+import { User } from "./User";
+
 export class Token {
   mensaje: string;
-  user: Map<string, string>;
-  token: String;
+  user: User;
+  token: string;
 
-  constructor(mensaje: string, user: Map<string, string>, token: String) {
+  constructor(mensaje: string, user: User, token: string) {
     this.mensaje = mensaje;
     this.token = token;
     this.user = user;

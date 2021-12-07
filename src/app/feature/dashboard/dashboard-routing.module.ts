@@ -12,7 +12,7 @@ const routes: Routes = [
       {
         path: 'materia',
         loadChildren: () =>
-          import('./components/materia//materia.module').then(
+          import('./components/materia/materia.module').then(
             (mod) => mod.MateriaModule
           ),
       },

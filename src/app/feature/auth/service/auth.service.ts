@@ -10,7 +10,7 @@ export class AuthService {
 
   public login(crdenciales: Credenciales) {
     return this.http.doPost<Credenciales, Token>(
-      `${environment.endpoint}/login`,
+      `${environment.endpoint}/api/login`,
       crdenciales,
       this.http.optsName(' Login ')
     );

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {  FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Token } from '../model/Token';
 import { AuthService } from '../service/auth.service';
 
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   public token: Token = null;
   public formUser: FormGroup;
 
-  constructor(protected login: AuthService, private fb: FormBuilder) { }
+  constructor(protected authService: AuthService, protected fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.formUser = this.fb.group({
@@ -24,7 +25,12 @@ export class LoginComponent implements OnInit {
 
   public loginUser() {
     console.log(this.formUser.value);
-    this.login.login(this.formUser.value).subscribe( (token) => console.log(token));
+    this.authService.login(this.formUser.value).subscribe(
+      (token) => {
+        localStorage.setItem('token', token.token);
+        this.router.navigate(['/dashboard', 'materia', 'listar'])
+       }
+    );
   }
 
 }
