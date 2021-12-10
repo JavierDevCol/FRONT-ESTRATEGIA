@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoginGuardGuard } from './core/guard/login-guard.guard';
 import { AuthModule } from './feature/auth/auth.module';
 import { InicioComponent } from './inicio/inicio.component';
 
@@ -18,7 +19,7 @@ import { InicioComponent } from './inicio/inicio.component';
     AuthModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [LoginGuardGuard],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
