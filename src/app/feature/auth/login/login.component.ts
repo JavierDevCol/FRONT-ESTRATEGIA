@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   private encPass: string = 'ESTRATEGIA.UFPS-332817';
   private textoEncriptado: string;
 
-  constructor(protected authService: AuthService, protected fb: FormBuilder, private router: Router) { }
+  constructor(private authService: AuthService, protected fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.formUser = this.fb.group({
@@ -34,9 +34,11 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', token.token);
         this.textoEncriptado = CryptoJS.AES.encrypt('sesion-activa', this.encPass.trim()).toString();
         localStorage.setItem('maxell', this.textoEncriptado);
+        localStorage.setItem('role', token.user.authorities[0].authority);
+        localStorage.setItem('user', token.user.username);
+        this.authService.setRole(token.user.authorities[0].authority);
+        console.log(this.authService.getRole())
         this.token = token;
-        console.log(this.sesionActiva());
-
         this.router.navigate(['/dashboard', 'materia', 'listar'])
       },
       ({ error }) => {

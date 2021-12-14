@@ -15,7 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     LoginComponent,
     RegistroComponent
-  ], exports: [
+  ],
+  exports: [
     LoginComponent,
     RegistroComponent,
     HttpClientModule

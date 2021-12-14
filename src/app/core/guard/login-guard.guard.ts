@@ -12,13 +12,12 @@ export class LoginGuardGuard implements CanActivate {
   constructor(protected router: Router) { }
 
   canActivate() {
-    console.log("paso por el guard perro sapo");
     let text = localStorage.getItem('maxell');
     this.textoDesencriptado = CryptoJS.AES.decrypt(text.trim(), this.encPass.trim()).toString(CryptoJS.enc.Utf8);
     if (this.textoDesencriptado === 'sesion-activa') {
       return true;
     }
-    this.router.navigate(['/login']);
+    this.router.navigate(['/auth', 'login']);
     return false;
   }
 }
