@@ -3,10 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.config.json",
+    "start": "node server.js",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "lite": "lite-server",
+    "postinstall": "ng build --prod"
   },
   "private": true,
   "dependencies": {
@@ -22,6 +25,7 @@
     "@angular/router": "~12.0.4",
     "@swimlane/ngx-datatable": "^20.0.0",
     "crypto-js": "^4.1.1",
+    "express": "^4.17.1",
     "rxjs": "~6.6.0",
     "sweetalert2": "^11.2.1",
     "tslib": "^2.1.0",
@@ -40,5 +44,9 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
     "typescript": "~4.2.3"
+  },
+  "engines": {
+    "node": "14.15.1",
+    "npm": "6.14.8"
   }
 }
