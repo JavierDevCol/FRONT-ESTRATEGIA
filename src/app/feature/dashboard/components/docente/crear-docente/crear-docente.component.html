@@ -1,11 +1,12 @@
 <div class="card">
     <div class="card-body">
       <form [formGroup]="docenteForm" (ngSubmit)="crearDocente()">
+
         <div class="mb-3">
           <!-- <label for="exampleInputEmail1" class="form-label"
             >Nombre de la Materia</label> -->
           <input
-            type="email"
+            type="text"
             class="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
@@ -14,6 +15,46 @@
           />
           <div id="emailHelp" class="form-text"></div>
         </div>
+
+        <div class="mb-3">
+          <!-- <label for="exampleInputEmail1" class="form-label"
+            >Nombre de la Materia</label> -->
+          <input
+            type="text"
+            class="form-control"
+            aria-describedby="emailHelp"
+            formControlName="apellido"
+            placeholder="apellido de el docente"
+          />
+          <div id="apellido" class="form-text"></div>
+        </div>
+
+        <div class="mb-3">
+          <!-- <label for="exampleInputEmail1" class="form-label"
+            >Nombre de la Materia</label> -->
+          <input
+            type="email"
+            class="form-control"
+            aria-describedby="emailHelp"
+            formControlName="correo"
+            placeholder="correo del docente"
+          />
+          <div  class="form-text"></div>
+        </div>
+
+        <div class="mb-3">
+          <!-- <label for="exampleInputEmail1" class="form-label"
+            >Nombre de la Materia</label> -->
+          <input
+            type="password"
+            class="form-control"
+            aria-describedby="emailHelp"
+            formControlName="contrasena"
+            placeholder="contrasena del docente"
+          />
+          <div  class="form-text"></div>
+        </div>
+
         <button type="submit" class="btn btn-primary" [disabled] = "docenteForm.invalid">Crear Docente</button>
       </form>
     </div>

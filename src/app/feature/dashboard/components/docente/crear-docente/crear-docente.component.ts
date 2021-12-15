@@ -18,7 +18,12 @@ export class CrearDocenteComponent implements OnInit {
   ngOnInit(): void {
 
     this.docenteForm = this.fb.group({
-      nombre: ['', Validators.required ]
+      nombre: ['', Validators.required ],
+      apellido: ['', Validators.required ],
+      correo: ['', Validators.required ],
+      contrasena: ['', Validators.required ],
+      enabled: [true],
+      id: [0]
     })
   }
 
