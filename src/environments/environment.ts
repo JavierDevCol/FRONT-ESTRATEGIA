@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  endpoint: 'https://estrategiasufps.herokuapp.com/'
+  endpoint: 'https://estrategiasufps.herokuapp.com'
 };
 
 /*
