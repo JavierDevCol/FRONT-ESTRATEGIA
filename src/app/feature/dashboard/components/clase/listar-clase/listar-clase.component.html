@@ -1,0 +1,71 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+
+        <table class="table table-hover">
+
+          <thead>
+
+            <tr>
+              <th scope="col">Materia</th>
+              <th scope="col">Grupo</th>
+              <th scope="col">Docente</th>
+              <th scope="col">Periodo</th>
+              <th scope="col">Asignar Docente</th>
+              <th scope="col">Asignar Estudiante</th>
+              <th scope="col">Asignar Estrategia</th>
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            <tr
+              *ngFor="let clase of listaClases | async | filtro:desde:objMostrar"
+              id="tr-id-1"
+              class="tr-class-1"
+            >
+              <td id="td-id-1" class="td-class-1">{{ clase.materia }}</td>
+              <td>{{ clase.grupo }}</td>
+              <td>{{ clase.docente }}</td>
+              <td>{{ clase.periodo }}</td>
+
+              <td>
+                <button class="btn btn-primary" (click)="asignarDocente(clase)">
+                  <i class="fa fa-edit"></i>
+                </button>
+              </td>
+
+              <td>
+                <button class="btn btn-primary" (click)="asignarEstudiante(clase)">
+                  <i class="fa fa-edit"></i>
+                </button>
+              </td>
+
+              <td>
+                <button class="btn btn-primary" (click)="asignarEstrategia(clase)">
+                  <i class="fa fa-edit"></i>
+                </button>
+              </td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" (click)="previousPage()" >Previous</a></li>
+            <li class="page-item"><button class="btn btn-primary" (click)="nextPage()" [disabled]="endPage==numberPages">Next</button></li>
+          </ul>
+        </nav>
+
+      </div>
+      <div *ngIf="endPage===numberPages" class="alert alert-warning" role="alert">
+        No se tienen mas datos!
+      </div>
+    </div>
+  </div>
+</div>

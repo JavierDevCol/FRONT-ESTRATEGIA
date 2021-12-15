@@ -1,0 +1,32 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="estudianteForm" (ngSubmit)="crearEstudiante()">
+      <div class="mb-3">
+        <!-- <label for="exampleInputEmail1" class="form-label"
+          >Nombre de la Materia</label> -->
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          formControlName="nombre" placeholder="Nombres del Estudiante" /><br>
+
+        <input type="email" class="form-control" id="descripcion" aria-describedby="emailHelp"
+          formControlName="apellido" placeholder="Apellidos" /><br>
+
+        <input type="email" class="form-control" id="descripcion" aria-describedby="emailHelp" formControlName="correo"
+          placeholder="Correo Electronico" /><br>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="repitente">
+          <label class="form-check-label" for="flexCheckDefault">
+            Repitente ?
+          </label>
+        </div><br>
+
+        <div id="emailHelp" class="form-text"></div><br>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="estudianteForm.invalid">
+        Crear Estudiante
+      </button>
+    </form>
+  </div>
+</div>
+
+<app-listar-estudiante></app-listar-estudiante>

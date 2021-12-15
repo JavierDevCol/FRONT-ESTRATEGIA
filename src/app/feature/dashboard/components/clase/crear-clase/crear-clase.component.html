@@ -1,0 +1,39 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="claseForm" (ngSubmit)="crearClase()">
+      <div class="mb-3">
+        <!-- <label for="exampleInputEmail1" class="form-label"
+            >Nombre de la Materia</label> -->
+        <label><b>Materia: </b></label>
+        <select class="form-control mb-3" formControlName="materia">
+          <option *ngFor="let ma of materias | async " [ngValue]="ma.id">
+            {{ ma.nombre }}
+          </option>
+        </select>
+
+        <label><b>Grupo: </b></label>
+        <select class="form-control mb-3" formControlName="grupo">
+          <option *ngFor="let gr of grupos | async " [ngValue]="gr.id">
+            {{ gr.nombre }}
+          </option>
+        </select>
+
+
+        <div id="emailHelp" class="form-text"></div>
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="claseForm.invalid"
+      >
+        Crear Clase
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- <div class="card"> -->
+<!-- <div class="card-body"> -->
+<app-listar-clase></app-listar-clase>
+<!-- </div> -->
+<!-- </div> -->

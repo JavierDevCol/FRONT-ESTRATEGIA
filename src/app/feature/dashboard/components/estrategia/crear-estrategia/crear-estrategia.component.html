@@ -1,0 +1,32 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="estrategiaForm" (ngSubmit)="crearEstrategia()">
+      <div class="mb-3">
+        <!-- <label for="exampleInputEmail1" class="form-label"
+          >Nombre de la Materia</label> -->
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          formControlName="nombre"
+          placeholder="Nombre de la estrategia"
+        />
+
+        <input
+        type="email"
+        class="form-control"
+        id="descripcion"
+        aria-describedby="emailHelp"
+        formControlName="descripcion"
+        placeholder="Descripcion"
+      />
+        <div id="emailHelp" class="form-text"></div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled] = "estrategiaForm.invalid">Crear Estrategia</button>
+    </form>
+  </div>
+</div>
+
+<app-listar-estrategia></app-listar-estrategia>
+

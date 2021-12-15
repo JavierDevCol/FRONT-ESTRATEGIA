@@ -1,20 +1,26 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FeatureComponent } from './feature/feature.component';
+import { LoginGuardGuard } from './core/guard/login-guard.guard';
+import { AuthModule } from './feature/auth/auth.module';
+import { InicioComponent } from './inicio/inicio.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    FeatureComponent
+    InicioComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AuthModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [LoginGuardGuard],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

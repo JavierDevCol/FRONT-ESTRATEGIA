@@ -1,0 +1,68 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+
+        <table class="table table-hover">
+
+          <thead>
+
+            <tr>
+              <th scope="col" class="text-center">Codigo</th>
+              <th scope="col" class="text-center">Nombre</th>
+              <th scope="col" class="text-center">Apellido</th>
+              <th scope="col" class="text-center">Correo</th>
+              <th scope="col" class="text-center">Repitente</th>
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            <tr
+              *ngFor="let materia of listaEstudiantes | async | filtro:desde:objMostrar"
+              id="tr-id-1"
+              class="tr-class-1"
+            >
+              <td id="td-id-1" class="td-class-1 text-center">{{ materia.id }}</td>
+              <td class="text-center">{{ materia.nombre }}</td>
+              <td class="text-center">{{ materia.apellido }}</td>
+              <td class="text-center">{{ materia.correo }}</td>
+              <td class="text-center" *ngIf="materia.repitente === true" >
+                <i class="ti-check-box label label-light-danger" style="    width: 30px;
+                height: 30px;
+                padding-top: 8px;"></i>
+              </td>
+              <td class="text-center" *ngIf="materia.repitente === false" >
+              </td>
+
+              <td class="text-center">
+                <button class="btn btn-danger" (click)="borrar(materia)">
+                  <i class="mdi mdi-delete-forever"></i>
+                </button>
+                </td>
+              <td class="text-center">
+                <button class="btn btn-primary">
+                  <i class="fa fa-edit"></i>
+                </button>
+              </td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" (click)="previousPage()" >Previous</a></li>
+            <li class="page-item"><button class="btn btn-primary" (click)="nextPage()" [disabled]="endPage==numberPages">Next</button></li>
+          </ul>
+        </nav>
+
+      </div>
+      <div *ngIf="endPage===numberPages" class="alert alert-warning" role="alert">
+        No se tienen mas datos!
+      </div>
+    </div>
+  </div>
+</div>

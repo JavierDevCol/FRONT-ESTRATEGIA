@@ -1,16 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-siders',
   templateUrl: './siders.component.html',
-  styles: [
-  ]
+  styles: []
 })
 export class SidersComponent implements OnInit {
 
-  constructor() { }
+  public rol: string;
+  public username: string;
 
-  ngOnInit(): void {
+  constructor() {
   }
 
+  ngOnInit(): void {
+    this.rol = localStorage.getItem('role');
+    this.username = localStorage.getItem('user');
+    console.log("ACA  " + this.rol);
+  }
 }
